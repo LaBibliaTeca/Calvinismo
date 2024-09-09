@@ -36,6 +36,7 @@ x
 	</style>
 </head>
 <body>
+<button style="width: 200px; height: 50px;background-color: rgb(255, 221, 3);font-size: 16px;" onclick="leerEnVozAlta()">Presionar para Leer en Voz Alta</button>
 <div class="container">
 <h2><i>&iquest;Es el Calvinismo o el Arminianismo un problema para las Iglesias Cristianas?</i></h2>
 <br />
@@ -53,7 +54,7 @@ Todos nacemos en &quot;alg&uacute;n lugar&quot; y es nuestra &quot;Patria tempor
 <u>NO DISCUTAS</u> , ded&iacute;cate mas bien a estudiar las Escrituras y a aumentar el conocimiento de ellas.<br />
 <u>Trata de aprender</u> en forma b&aacute;sica el lenguaje de las Escrituras , te ayudar&aacute; el griego (algo de lat&iacute;n por consultas a la Vulgata) , y si puedes Hebreo, aunque cuentas con el AT en griego : la septuaginta .<br />
 Encontrar&aacute;s en mi biblioteca material sobre c&oacute;dices y manuscritos antiguos:<br />
-<i>( <a href="https://drive.google.com/drive/folders/1Ht3y1KIfYJW9P98CfBCQ8HVTFccon8Ly?usp=drive_link"> Biblioteca </a>).</i>
+<i>( <a></a>).</i>
 
 <p>&nbsp;</p>
 
@@ -61,5 +62,33 @@ Encontrar&aacute;s en mi biblioteca material sobre c&oacute;dices y manuscritos 
 NO TE DEJES INTIMIDAR por ninguna autoridad m&aacute;s que Biblia.<br />
 Dios te bendiga, estoy a tu disposici&oacute;n.</p>
 </div>
+	<a href="https://labibliateca.github.io/main/"><mark>PAGINA PRINCIPAL</mark>
+		<script>
+     function leerEnVozAlta() {
+    // Obtener el texto del elemento con la clase "contenido-texto"
+    var texto = document.querySelector('.contenido').innerText;
+
+    // Dividir el texto en segmentos más pequeños
+    var partes = dividirTextoEnPartes(texto, 560); // Por ejemplo, 200 caracteres por parte
+
+    // Leer cada parte secuencialmente
+    partes.forEach((parte) => {
+        var mensaje = new SpeechSynthesisUtterance(parte);
+        mensaje.lang = 'es-ES';
+        mensaje.pitch = 1;
+        mensaje.rate = 0.9;
+        window.speechSynthesis.speak(mensaje);
+    });
+}
+
+function dividirTextoEnPartes(texto, tamano) {
+    var partes = [];
+    for (var i = 0; i < texto.length; i += tamano) {
+        partes.push(texto.slice(i, i + tamano));
+    }
+    return partes;
+}
+
+    </script>
 </body>
 </html>
